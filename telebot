@@ -1,0 +1,29 @@
+import requests
+import sys
+import re
+
+def telegram_bot_sendtext(bot_message):
+
+    bot_token = ''
+    bot_chatID = ''
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+
+    response = requests.get(send_text)
+ 
+
+    return response.json()
+
+if sys.argv == "help":
+    print("Save new birthday: bot.py name dd.mm.yyyy")
+    print("Find specific birthday boy name")
+    print("No argument for getting all birthday boys")
+
+if sys.argv.count == 2:
+    print("Searching for birthdayboy")
+
+if sys.argv.count == 3:
+    if re.match("^[a-zA-Z]+$", sys.argv[1]):
+        print("test1")
+
+    if re.match("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$", sys.argv[2]):
+        print("test2")
