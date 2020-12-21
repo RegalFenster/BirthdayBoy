@@ -1,12 +1,11 @@
 # BirthdayBoy
 Scipting Project for MSD20
 
-# Template Repository
-
 ## About
 ### Authors/Contributors
-* [Michael Ulm](mailto:michael.ulm@fh-joanneum.at)
-* [Harald Schwab](mailto:harald.schwab2@fh-joanneum.at)
+* [David Riegler](mailto:michael.ulm@fh-joanneum.at)
+* [Lukas Weber](mailto:harald.schwab2@fh-joanneum.at)
+* [Ulrike Ozim](mailto:harald.schwab2@fh-joanneum.at)
 
 ### Description
 > What will we do
