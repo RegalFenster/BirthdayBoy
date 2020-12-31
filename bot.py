@@ -1,9 +1,11 @@
-import requests
-import sys
+import getopt
 import re
+import sys
+
+import requests
+
 import config
-import getopt 
- 
+
 
 def telegram_bot_sendtext(bot_message):
 
