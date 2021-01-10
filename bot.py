@@ -9,13 +9,13 @@ import requests
 import config
 
 
-def telegram_bot_sendtext(bot_message):
+def telegramBotSendtext(botMessage):
 
-    bot_token = config.bot_token 
-    bot_chatID = config.bot_chatID 
-    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+    botToken = config.botToken 
+    botChatID = config.botChatID 
+    sendText = 'https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + botChatID + '&parse_mode=Markdown&text=' + botMessage
 
-    response = requests.get(send_text)
+    response = requests.get(sendText)
 
     return response.json()
 
@@ -33,7 +33,7 @@ def checkBirthdaysFileExists():
 argv = sys.argv[1:] 
 
 try: 
-    opts, args = getopt.getopt(argv, "h") 
+    opts, args = getopt.getopt(argv, "h:d") 
 except: 
     print("For help: bot.py -h") 
     sys.exit()
@@ -43,16 +43,20 @@ for opt, arg in opts:
         print("No argument for getting all birthday boys: bot.py")
         print("Find specific birthday boy: bot.py <name>")
         print("Save new birthday: bot.py <name> <dd.mm.yyyy>")
+        print("For deleting birthday file: bot.py -d")
+    if opt in ['-d']:   
+        if checkBirthdaysFileExists() == True:
+            os.remove('birthdays.csv')
+            
       
-
-
 #Check arguments and process      
 if len(argv) == 0:
+    updatePythonAnywhereFile()
     if checkBirthdaysFileExists() == True:
         with open('birthdays.csv', 'rt') as f:
             csvReader = csv.reader(f)
             for p in csvReader:
-                telegram_bot_sendtext(p[0] + " " + p[1])
+                telegramBotSendtext(p[0] + " " + p[1])
 
 
 if len(argv) == 1:
@@ -61,7 +65,7 @@ if len(argv) == 1:
             csvReader = csv.reader(f)
             for p in csvReader:
                 if argv[0] in p:
-                    telegram_bot_sendtext(p[1])
+                    telegramBotSendtext(p[1])
         
    
 if len(argv) == 2:
