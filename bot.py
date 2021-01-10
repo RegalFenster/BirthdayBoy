@@ -51,7 +51,6 @@ for opt, arg in opts:
       
 #Check arguments and process      
 if len(argv) == 0:
-    updatePythonAnywhereFile()
     if checkBirthdaysFileExists() == True:
         with open('birthdays.csv', 'rt') as f:
             csvReader = csv.reader(f)
