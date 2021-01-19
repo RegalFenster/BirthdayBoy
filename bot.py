@@ -35,7 +35,7 @@ def main():
     argv = sys.argv[1:] 
 
     try: 
-        opts, argv = getopt.getopt(argv, "hd") 
+        opts, args = getopt.getopt(argv, "hd") 
     except: 
         print("For help: bot.py -h") 
         sys.exit()
