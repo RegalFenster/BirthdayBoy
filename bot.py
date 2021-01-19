@@ -33,7 +33,7 @@ def checkBirthdaysFileExists():
 argv = sys.argv[1:] 
 
 try: 
-    opts, args = getopt.getopt(argv, "h:d") 
+    opts, args = getopt.getopt(argv, 'h:d') 
 except: 
     print("For help: bot.py -h") 
     sys.exit()
