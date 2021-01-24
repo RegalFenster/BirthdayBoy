@@ -3,10 +3,9 @@ import getopt
 import os.path
 import re
 import sys
-
 import requests
-
 import config
+import datetime
 
 
 def telegramBotSendText(botMessage):
@@ -26,6 +25,7 @@ def checkBirthdaysFileExists():
     else:
         print("No birthday boys existent")
         return False
+
 
 def main():
 
@@ -50,21 +50,22 @@ def main():
             if checkBirthdaysFileExists() == True:
                 os.remove('birthdays.csv')
                 
-        
     #Check arguments and process      
     if len(argv) == 0:
         if checkBirthdaysFileExists() == True:
             with open('birthdays.csv', 'rt') as f:
-                csvReader = csv.reader(f)
-                for p in csvReader:
+                csvReader = csv.reader(f, delimiter=',')
+                day_sorted = sorted(csvReader, key=lambda day: datetime.datetime.strptime(day[1], "%d.%m.%Y"), reverse=False)
+                for p in day_sorted:
                     telegramBotSendText(p[0] + " " + p[1])
 
 
     if len(argv) == 1:
         if checkBirthdaysFileExists() == True:
             with open('birthdays.csv', 'rt') as f:
-                csvReader = csv.reader(f)
-                for p in csvReader:
+                csvReader = csv.reader(f, delimiter=',')
+                day_sorted = sorted(csvReader, key=lambda day: datetime.datetime.strptime(day[1], "%d.%m.%Y"), reverse=False)
+                for p in day_sorted:
                     if argv[0] in p:
                         telegramBotSendText(p[1])
             
@@ -75,6 +76,10 @@ def main():
                 dateName = [argv[0], argv[1]]
                 csvWriter = csv.writer(f)
                 csvWriter.writerow(dateName)
+        else:
+            print("(error) Please enter the right format <name> <dd.mm.YYYY> or bot.py -h for help")
 
+    if len(argv) >= 3:
+         print("(error) Please enter the right format <name> <dd.mm.YYYY> or bot.py -h for help")
 
 main()
