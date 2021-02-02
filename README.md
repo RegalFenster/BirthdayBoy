@@ -30,14 +30,14 @@ Under Value there is a key like {dcID":"1":0123456789}
 
 Fill the last String of number in your config.py file under the name botID.
 
-![Screenshot](ConsoleInput.png)
+![Screenshot](/Pictures/ConsoleInput.png)
 For start the Script use your command line and enter python bot.py < name > < birthday >
   
   
-![Screenshot](TelegramNameDate.png)
+![Screenshot](/Pictures/TelegramNameDate.png)
 For getting the names and dates use the command python bot.py
 
-![Screenshot](TelegramName.png)
+![Screenshot](/Pictures/TelegramName.png)
 For only one person enter python.bot.py < name >
   
   
