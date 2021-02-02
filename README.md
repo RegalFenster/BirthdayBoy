@@ -21,8 +21,26 @@ This "project" contains/will implement/focus on:
 > placeholder, in the future description about functionalities
 
 ## Documentation
-> placeholder, documentation following
+https://web.telegram.org/#/im?p=@uuuuuiiii_bot
+Use this link to start the bot. After that get use of your Browser Console.
 
+In Google Chrome go Application -> Storage -> Local Storage -> user_auth. 
+In Safari go Storage -> Local Storage -> user_auth
+Under Value there is a key like {dcID":"1":0123456789}
+
+Fill the last String of number in your config.py file under the name botID.
+
+![Screenshot](screenshot.png)
+For start the Script use your command line and enter python bot.py <name> <birthday>
+  
+  
+![Screenshot](screenshot.png)
+For getting the names and dates use the command python bot.py
+
+![Screenshot](screenshot.png)
+For only one person enter python.bot.py <name>
+  
+  
 ## Known Issues
 > placeholder
 
